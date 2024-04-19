@@ -5,6 +5,7 @@ from .forms import LoginForm
 
 
 def user_login(request):
+    form = LoginForm()
     if request.method == 'POST':
         form = LoginForm(request.POST)
         if form.is_valid():
@@ -18,8 +19,6 @@ def user_login(request):
                     return HttpResponse('Disabled account')
             else:
                 return HttpResponse('Invalid login')
-        else:
-            form = LoginForm()
-        return render(request, 'account/login.html', {'form': form})
+    return render(request, 'account/login.html', {'form': form})
 
 # Create your views here.
