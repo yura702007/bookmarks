@@ -32,7 +32,7 @@ def register(request):
             # Сохранить объект User
             new_user.save()
             # Создать профиль пользователя
-            Profile.objects.ctreate(user=new_user)
+            Profile.objects.create(user=new_user)
             return render(request, 'account/register_done.html', {'new_user': new_user})
     else:
         user_form = UserRegistrationForm()
