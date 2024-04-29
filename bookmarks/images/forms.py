@@ -5,7 +5,7 @@ from django.utils.text import slugify
 import requests
 
 
-class ImageCreateForm(forms.Form):
+class ImageCreateForm(forms.ModelForm):
     class Meta:
         model = Image
         fields = ['title', 'url', 'description']
