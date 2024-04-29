@@ -14,7 +14,7 @@ def image_create(request):
             cd = form.cleaned_data
             new_image = form.save(commit=False)
             # назначить текущего пользователя элементу
-            new_image_user = request.user
+            new_image.user = request.user
             new_image.save()
             messages.success(request, 'Image added successfully')
             # перенаправить к представлению детальной
